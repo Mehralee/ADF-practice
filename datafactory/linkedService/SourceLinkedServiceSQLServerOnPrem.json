@@ -1,0 +1,29 @@
+{
+	"name": "SourceLinkedServiceSQLServerOnPrem",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"description": "SourceLinkedServiceSQLServerOnPrem",
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"server": "sqlservervmofme",
+			"database": "AdventureWorksLT2019",
+			"encrypt": "optional",
+			"trustServerCertificate": false,
+			"authenticationType": "SQL",
+			"userName": "mehi",
+			"password": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "AzureKeyVault1",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "password"
+			}
+		},
+		"connectVia": {
+			"referenceName": "SHintegrationRuntime1",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

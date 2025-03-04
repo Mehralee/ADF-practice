@@ -1,0 +1,98 @@
+{
+	"name": "dataflowjoin",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "AddressParquet",
+						"type": "DatasetReference"
+					},
+					"name": "SourceTD"
+				},
+				{
+					"dataset": {
+						"referenceName": "CustomerAddressParquet",
+						"type": "DatasetReference"
+					},
+					"name": "SourceTD2"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "Join2",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "join1"
+				},
+				{
+					"name": "select1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          AddressID as integer,",
+				"          AddressLine1 as string,",
+				"          AddressLine2 as string,",
+				"          City as string,",
+				"          StateProvince as string,",
+				"          CountryRegion as string,",
+				"          PostalCode as string,",
+				"          rowguid as string,",
+				"          ModifiedDate as timestamp",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     inferDriftedColumnTypes: true,",
+				"     ignoreNoFilesFound: false,",
+				"     format: 'parquet') ~> SourceTD",
+				"source(output(",
+				"          CustomerID as integer,",
+				"          AddressID as integer,",
+				"          AddressType as string,",
+				"          rowguid as string,",
+				"          ModifiedDate as timestamp",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     format: 'parquet') ~> SourceTD2",
+				"SourceTD, SourceTD2 join(SourceTD@AddressID == SourceTD2@AddressID,",
+				"     joinType:'left',",
+				"     matchType:'exact',",
+				"     ignoreSpaces: false,",
+				"     partitionBy('hash', 1),",
+				"     broadcast: 'auto')~> join1",
+				"join1 select(mapColumn(",
+				"          AddressID = SourceTD@AddressID,",
+				"          AddressLine1,",
+				"          AddressLine2,",
+				"          City,",
+				"          StateProvince,",
+				"          CountryRegion,",
+				"          PostalCode,",
+				"          rowguid = SourceTD@rowguid,",
+				"          ModifiedDate = SourceTD@ModifiedDate,",
+				"          CustomerID,",
+				"          AddressID = SourceTD2@AddressID,",
+				"          AddressType,",
+				"          rowguid = SourceTD2@rowguid,",
+				"          ModifiedDate = SourceTD2@ModifiedDate",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select1",
+				"select1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1"
+			]
+		}
+	}
+}
