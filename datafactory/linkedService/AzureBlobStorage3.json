@@ -1,0 +1,11 @@
+{
+	"name": "AzureBlobStorage3",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobStorage",
+		"typeProperties": {
+			"serviceEndpoint": "https://adlsofmehi.blob.core.windows.net/",
+			"accountKind": "StorageV2"
+		}
+	}
+}
