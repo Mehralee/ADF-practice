@@ -1,0 +1,183 @@
+{
+	"name": "DelimitedText1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage3",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "silver"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "DATE",
+				"type": "String"
+			},
+			{
+				"name": "IMPORTER NAME",
+				"type": "String"
+			},
+			{
+				"name": "IMPORTER ADDRESS",
+				"type": "String"
+			},
+			{
+				"name": "SUPPLIER NAME",
+				"type": "String"
+			},
+			{
+				"name": "SUPPLIER ADDRESS",
+				"type": "String"
+			},
+			{
+				"name": "DECLARANT NAME",
+				"type": "String"
+			},
+			{
+				"name": "DECLARANT ADDRESS",
+				"type": "String"
+			},
+			{
+				"name": "EXPORT COUNTRY",
+				"type": "String"
+			},
+			{
+				"name": "ORIGIN COUNTRY",
+				"type": "String"
+			},
+			{
+				"name": "HS CODE",
+				"type": "String"
+			},
+			{
+				"name": "PRODUCT DESCRIPTION",
+				"type": "String"
+			},
+			{
+				"name": "PACKAGE UNIT NAME",
+				"type": "String"
+			},
+			{
+				"name": "UNIT",
+				"type": "String"
+			},
+			{
+				"name": "TOTAL PACKAGES",
+				"type": "String"
+			},
+			{
+				"name": "QUANTITY",
+				"type": "String"
+			},
+			{
+				"name": "ITEMS",
+				"type": "String"
+			},
+			{
+				"name": "ITEM NO",
+				"type": "String"
+			},
+			{
+				"name": "NO OF PACKAGES ITEM",
+				"type": "String"
+			},
+			{
+				"name": "GROSS WEIGHT KG",
+				"type": "String"
+			},
+			{
+				"name": "NET WEIGHT KG",
+				"type": "String"
+			},
+			{
+				"name": "DECLARED UNIT PRICE FC",
+				"type": "String"
+			},
+			{
+				"name": "ASSESSABLE UNIT PRICE FC",
+				"type": "String"
+			},
+			{
+				"name": "ITEM PRICE FC",
+				"type": "String"
+			},
+			{
+				"name": "TOTAL INVOICE VALUE FC",
+				"type": "String"
+			},
+			{
+				"name": "CURRENCY",
+				"type": "String"
+			},
+			{
+				"name": "TOTAL VALUE BDT",
+				"type": "String"
+			},
+			{
+				"name": "TOTAL VALUE USD",
+				"type": "String"
+			},
+			{
+				"name": "TOTAL TAX BDT",
+				"type": "String"
+			},
+			{
+				"name": "TOTAL DECLARATION",
+				"type": "String"
+			},
+			{
+				"name": "TOTAL OTHER COSTS",
+				"type": "String"
+			},
+			{
+				"name": "EXCHANGE RATE",
+				"type": "String"
+			},
+			{
+				"name": "DELIVERY TERMS",
+				"type": "String"
+			},
+			{
+				"name": "MODE OF TRANSPORT",
+				"type": "String"
+			},
+			{
+				"name": "PORT OF UNLOADING",
+				"type": "String"
+			},
+			{
+				"name": "PORT OFFICE NAME",
+				"type": "String"
+			},
+			{
+				"name": "CHAPTER",
+				"type": "String"
+			},
+			{
+				"name": "HEADING",
+				"type": "String"
+			},
+			{
+				"name": "SUB HEADING",
+				"type": "String"
+			},
+			{
+				"name": "MONTH",
+				"type": "String"
+			},
+			{
+				"name": "YEAR",
+				"type": "String"
+			}
+		]
+	}
+}
