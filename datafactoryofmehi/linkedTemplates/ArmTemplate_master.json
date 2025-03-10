@@ -1,0 +1,195 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "datafactoryofmehi"
+		},
+		"AzureBlobStorage2_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage2'"
+		},
+		"GitHubLinkedServiceSource_credential": {
+			"type": "secureString",
+			"metadata": "Secure string for 'credential' of 'GitHubLinkedServiceSource'"
+		},
+		"HttpLinkedServiceForSource_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'HttpLinkedServiceForSource'"
+		},
+		"AzureBlobStorage1_properties_typeProperties_serviceEndpoint": {
+			"type": "string",
+			"defaultValue": "https://adlsofmehi.blob.core.windows.net/"
+		},
+		"AzureBlobStorage3_properties_typeProperties_serviceEndpoint": {
+			"type": "string",
+			"defaultValue": "https://adlsofmehi.blob.core.windows.net/"
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://prodkeyvaultmehi.vault.azure.net/"
+		},
+		"AzureKeyVault2_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://devkeyvaultmehi.vault.azure.net/"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "sqlserverdevmehi.database.windows.net"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "sqldbdevenv"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "mehrali"
+		},
+		"GitHubLinkedServiceSource_properties_typeProperties_username": {
+			"type": "string",
+			"defaultValue": "mehrali"
+		},
+		"HttpLinkedServiceForSource_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://raw.githubusercontent.com/Mehralee/Import-Export-Trade---Data-Engineering-Project/refs/heads/main/ImportExport%20Trade%20data%20Asia.csv"
+		},
+		"HttpLinkedServiceForSource_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "mehrali"
+		},
+		"LinkedServiceAzureDatabricks1_properties_typeProperties_existingClusterId": {
+			"type": "string",
+			"defaultValue": "1212-143450-lp8pyon4"
+		},
+		"SinkLinkedServiceAzureDataLakeStorage1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsofmehi.dfs.core.windows.net/"
+		},
+		"SourceLinkedServiceSQLServerOnPrem_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "sqlservervmofme"
+		},
+		"SourceLinkedServiceSQLServerOnPrem_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "AdventureWorksLT2019"
+		},
+		"SourceLinkedServiceSQLServerOnPrem_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "mehi"
+		},
+		"Eventbased_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/b90177ba-29ed-45cf-b337-82cfce2dc909/resourceGroups/Mehrali-RG/providers/Microsoft.Storage/storageAccounts/adlsofmehi"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "datafactoryofmehi_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureBlobStorage2_connectionString": {
+						"value": "[parameters('AzureBlobStorage2_connectionString')]"
+					},
+					"GitHubLinkedServiceSource_credential": {
+						"value": "[parameters('GitHubLinkedServiceSource_credential')]"
+					},
+					"HttpLinkedServiceForSource_password": {
+						"value": "[parameters('HttpLinkedServiceForSource_password')]"
+					},
+					"AzureBlobStorage1_properties_typeProperties_serviceEndpoint": {
+						"value": "[parameters('AzureBlobStorage1_properties_typeProperties_serviceEndpoint')]"
+					},
+					"AzureBlobStorage3_properties_typeProperties_serviceEndpoint": {
+						"value": "[parameters('AzureBlobStorage3_properties_typeProperties_serviceEndpoint')]"
+					},
+					"AzureKeyVault1_properties_typeProperties_baseUrl": {
+						"value": "[parameters('AzureKeyVault1_properties_typeProperties_baseUrl')]"
+					},
+					"AzureKeyVault2_properties_typeProperties_baseUrl": {
+						"value": "[parameters('AzureKeyVault2_properties_typeProperties_baseUrl')]"
+					},
+					"GitHubLinkedServiceSource_properties_typeProperties_username": {
+						"value": "[parameters('GitHubLinkedServiceSource_properties_typeProperties_username')]"
+					},
+					"HttpLinkedServiceForSource_properties_typeProperties_url": {
+						"value": "[parameters('HttpLinkedServiceForSource_properties_typeProperties_url')]"
+					},
+					"HttpLinkedServiceForSource_properties_typeProperties_userName": {
+						"value": "[parameters('HttpLinkedServiceForSource_properties_typeProperties_userName')]"
+					},
+					"SinkLinkedServiceAzureDataLakeStorage1_properties_typeProperties_url": {
+						"value": "[parameters('SinkLinkedServiceAzureDataLakeStorage1_properties_typeProperties_url')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "datafactoryofmehi_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureSqlDatabase1_properties_typeProperties_server": {
+						"value": "[parameters('AzureSqlDatabase1_properties_typeProperties_server')]"
+					},
+					"AzureSqlDatabase1_properties_typeProperties_database": {
+						"value": "[parameters('AzureSqlDatabase1_properties_typeProperties_database')]"
+					},
+					"AzureSqlDatabase1_properties_typeProperties_userName": {
+						"value": "[parameters('AzureSqlDatabase1_properties_typeProperties_userName')]"
+					},
+					"LinkedServiceAzureDatabricks1_properties_typeProperties_existingClusterId": {
+						"value": "[parameters('LinkedServiceAzureDatabricks1_properties_typeProperties_existingClusterId')]"
+					},
+					"SourceLinkedServiceSQLServerOnPrem_properties_typeProperties_server": {
+						"value": "[parameters('SourceLinkedServiceSQLServerOnPrem_properties_typeProperties_server')]"
+					},
+					"SourceLinkedServiceSQLServerOnPrem_properties_typeProperties_database": {
+						"value": "[parameters('SourceLinkedServiceSQLServerOnPrem_properties_typeProperties_database')]"
+					},
+					"SourceLinkedServiceSQLServerOnPrem_properties_typeProperties_userName": {
+						"value": "[parameters('SourceLinkedServiceSQLServerOnPrem_properties_typeProperties_userName')]"
+					},
+					"Eventbased_properties_typeProperties_scope": {
+						"value": "[parameters('Eventbased_properties_typeProperties_scope')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'datafactoryofmehi_ArmTemplate_0')]"
+			]
+		}
+	]
+}

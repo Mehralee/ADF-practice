@@ -1,0 +1,72 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "datafactoryofmehi"
+		},
+		"AzureBlobStorage2_connectionString": {
+			"value": ""
+		},
+		"GitHubLinkedServiceSource_credential": {
+			"value": ""
+		},
+		"HttpLinkedServiceForSource_password": {
+			"value": ""
+		},
+		"AzureBlobStorage1_properties_typeProperties_serviceEndpoint": {
+			"value": "https://adlsofmehi.blob.core.windows.net/"
+		},
+		"AzureBlobStorage3_properties_typeProperties_serviceEndpoint": {
+			"value": "https://adlsofmehi.blob.core.windows.net/"
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"value": "https://prodkeyvaultmehi.vault.azure.net/"
+		},
+		"AzureKeyVault2_properties_typeProperties_baseUrl": {
+			"value": "https://devkeyvaultmehi.vault.azure.net/"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_server": {
+			"value": "sqlserverdevmehi.database.windows.net"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_database": {
+			"value": "sqldbdevenv"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_userName": {
+			"value": "mehrali"
+		},
+		"GitHubLinkedServiceSource_properties_typeProperties_username": {
+			"value": "mehrali"
+		},
+		"HttpLinkedServiceForSource_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com/Mehralee/Import-Export-Trade---Data-Engineering-Project/refs/heads/main/ImportExport%20Trade%20data%20Asia.csv"
+		},
+		"HttpLinkedServiceForSource_properties_typeProperties_userName": {
+			"value": "mehrali"
+		},
+		"LinkedServiceAzureDatabricks1_properties_typeProperties_existingClusterId": {
+			"value": "1212-143450-lp8pyon4"
+		},
+		"SinkLinkedServiceAzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://adlsofmehi.dfs.core.windows.net/"
+		},
+		"SourceLinkedServiceSQLServerOnPrem_properties_typeProperties_server": {
+			"value": "sqlservervmofme"
+		},
+		"SourceLinkedServiceSQLServerOnPrem_properties_typeProperties_database": {
+			"value": "AdventureWorksLT2019"
+		},
+		"SourceLinkedServiceSQLServerOnPrem_properties_typeProperties_userName": {
+			"value": "mehi"
+		},
+		"Eventbased_properties_typeProperties_scope": {
+			"value": "/subscriptions/b90177ba-29ed-45cf-b337-82cfce2dc909/resourceGroups/Mehrali-RG/providers/Microsoft.Storage/storageAccounts/adlsofmehi"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
