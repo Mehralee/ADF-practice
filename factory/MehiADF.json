@@ -1,5 +1,13 @@
 {
 	"name": "MehiADF",
+	"properties": {
+		"globalParameters": {
+			"gpSourceAdls": {
+				"type": "string",
+				"value": "https://mehiadls.dfs.core.windows.net/"
+			}
+		}
+	},
 	"location": "eastus",
 	"identity": {
 		"type": "SystemAssigned",
