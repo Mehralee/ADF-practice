@@ -1,0 +1,6 @@
+{
+	"gpSourceAdls": {
+		"type": "string",
+		"value": "https://mehiadls.dfs.core.windows.net/"
+	}
+}
